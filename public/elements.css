@@ -1,0 +1,198 @@
+body{
+    font-family: HelveticaNeue;
+}
+
+.overlay {
+    position: fixed;
+    left: 0;
+    top: 0;
+    right: 0;
+    bottom: 0;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background-color: rgba(0, 0, 0, 0.3);
+  }
+
+
+.modal {
+    position: fixed;
+    left: 0;
+    top: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(0, 0, 0, 0.5);
+    opacity: 0;
+    visibility: hidden;
+    transform: scale(1.1);
+    transition: visibility 0s linear 0.25s, opacity 0.25s 0s, transform 0.25s;
+}
+
+.modalHeader{
+    border-bottom: .5px solid rgba(99, 99, 99, 0.6);
+    padding: 1rem;
+    margin-bottom: 1.5rem;
+}
+
+.headerText{
+  font-family: HelveticaNeue;
+  font-size: 1rem;
+  line-height: 1.21;
+  text-align: left;
+  color: #000000;
+}
+
+
+.close-button{
+    color: #606060b0;
+    background-color: white !important;
+    font-size: 1.5rem;
+    line-height: 1rem !important;
+}
+
+.contentBold{
+    font-weight: bold;
+}
+
+.desc{
+    color: #707070;
+    line-height: 1.3em;
+    font-size: 1em;
+    margin: 1.5em 0 .7em 0;
+}
+
+.modal-content {
+    position:absolute;
+    top:50%;
+    left:32.5%;
+    margin-left:-100px;/* half width*/
+    margin-top:-300px;/* half height*/
+    
+
+    transform: translate(-50%, -50%);
+    width: 58% !important;
+    border-radius: .3rem;
+    box-shadow: 0 3px 40px 0 rgba(0, 0, 0, 0.25);
+    border: solid .3px #707070 !important;
+    background-color: #ffffff;
+    
+}
+
+.modalBody{
+    text-align: center;
+}
+.fa-file-image{
+    color: #c2c3c6;
+    padding-top: 2rem;
+}
+
+#dataUrl{
+    width: 40%;
+    height: 2rem;
+    border-radius: 3px;
+  border: solid .5px #a7a7a78e;
+  background-color: #ffffff;
+  padding-left: .8rem;
+  margin: 0 auto 2rem auto;
+  font-size: .8em;
+}
+
+#dataUrl::placeholder{
+    color: #a7a7a7d8;
+}
+
+#labelCustom{
+    text-decoration: underline;
+    font-size: .8em;
+    font-weight: bold;
+    color: #9a9a9a;
+    margin: .8rem;
+    padding: .3rem;
+    cursor: pointer;
+}
+
+#addClient{
+    border-radius: .2rem;
+    background-color: #005cff;
+    border: none;
+    text-align: center !important;
+
+    width: 8rem;
+    height: 2.4rem;
+    cursor: pointer;
+    margin-top: 1.3em;
+    margin-bottom: 2.8em;
+    font-size: .9em;
+    text-align: left;
+    color: #ffffff;
+}
+
+#myCanvas{
+    height: 16rem;
+    width: 24rem;
+    margin: 2rem;
+    background-color: blue;
+    border-radius: .2rem;
+    object-fit: cover;
+}
+
+.uploadContainer{
+    border-radius: 5px;
+    border: dashed .8px #979797;
+    background-color: #fafcff;
+    width: 85%;
+    margin: auto;
+}
+
+.close-button {
+    float: right;
+    width: 1.5rem;
+    line-height: 1.5rem;
+    text-align: center;
+    cursor: pointer;
+    border-radius: 0.25rem;
+    background-color: lightgray;
+}
+.close-button:hover {
+    background-color: darkgray;
+}
+.show-modal {
+    opacity: 1;
+    visibility: visible;
+    transform: scale(1.0);
+    transition: visibility 0s linear 0s, opacity 0.25s 0s, transform 0.25s;
+}
+
+body button#addBtn{
+    width: 88%;
+    height: auto;
+    border-radius: 5px;
+    border: solid 0.5px #707070;
+    border-style: dashed;
+    background-color: #ffffff;
+    padding: 49px;
+    cursor: pointer;
+}
+
+#addBtn span{
+    width: 55px;
+    height: 35px;
+    font-size: 30px;
+    font-weight: normal;
+    font-stretch: normal;
+    font-style: normal;
+    line-height: 1.4em;
+    letter-spacing: normal;
+    text-align: left;
+    color: #8b8b8b;
+}
+
+.fa-5x{
+    color: #b7b7b7;
+}
+
+.btnContainer{
+    text-align: center;
+    padding-top: 1em;
+}
+
