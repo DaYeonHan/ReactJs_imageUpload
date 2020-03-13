@@ -1,7 +1,7 @@
 body{
     font-family: HelveticaNeue;
     margin: 1.5em !important;
-    background-color: #f4f4f4 !important;
+    background-color: #F2F4F7 !important;
 }
 
 /*nav*/
@@ -14,7 +14,9 @@ body{
 }
 
 .nav-tabs .nav-item{
-    margin-bottom: -.1em !important;
+    margin-bottom: -1px !important;
+    box-shadow: 0px -6px 12px -4px rgba(117, 117, 117, 0.2);
+    z-index: 100;
 }
 
 a:hover {
@@ -27,6 +29,8 @@ a:hover {
     border-radius: .25em;
     padding-bottom: 2em;
     padding-top: .8em;
+    box-shadow: 0px -6px 12px -6px rgba(117, 117, 117, 0.3);
+    z-index: 100;
 }
 
 /* Add button on home */

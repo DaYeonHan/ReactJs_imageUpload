@@ -1,7 +1,8 @@
 # ReactJs_imageUpload
 Created image uploading page with ReactJS
 
-![Preview](https://github.com/DaYeonHan/ReactJs_imageUpload/blob/master/src/image/2.png "Preview.png")
+![Preview](https://github.com/DaYeonHan/ReactJs_imageUpload/blob/master/src/image/1.png "Preview1.png")
+![Preview](https://github.com/DaYeonHan/ReactJs_imageUpload/blob/master/src/image/2.png "Preview2.png")
 
 
 Next things to do
