@@ -6,6 +6,6 @@ Created image uploading page with ReactJS
 
 Next things to do
 ------
-1) change Modal to ReactJS Modal
+1) ~~change Modal to ReactJS Modal~~
 
 2) display uploaded image via url or file upload under Add button
