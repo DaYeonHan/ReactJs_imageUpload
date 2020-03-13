@@ -1,5 +1,32 @@
 body{
     font-family: HelveticaNeue;
+    margin: 1.5em !important;
+    background-color: #f4f4f4 !important;
+}
+
+/*nav*/
+.nav-tabs .nav-link{
+    border: none !important;
+    height: 3.6em;
+    font-size: 1.2rem;
+    font-weight: bold;
+    padding-top: 1.2rem;
+}
+
+.nav-tabs .nav-item{
+    margin-bottom: -.1em !important;
+}
+
+a:hover {
+    background-color: lightgray;
+}
+
+/*clientContainer*/
+.threeTab{
+    background-color: white;
+    border-radius: .25em;
+    padding-bottom: 2em;
+    padding-top: .8em;
 }
 
 /* Add button on home */
@@ -12,6 +39,10 @@ body button#addBtn{
     background-color: #ffffff;
     padding: 49px;
     cursor: pointer;
+}
+
+body button#addBtn:hover{
+    background-color: #f5f5f536;
 }
 
 #addBtn span{
@@ -93,6 +124,8 @@ body button#addBtn{
     line-height: 1.3em;
     font-size: 1em;
     margin: 1.5em 0 .7em 0;
+    padding-left: 1em;
+    padding-right: 1em;
   }
 
   .contentBold{
