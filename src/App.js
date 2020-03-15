@@ -1,99 +1,109 @@
-import React, { useState, Component }  from 'react';
+import React, { useState, Component } from 'react';
 import 'bootstrap/dist/css/bootstrap.min.css';
-import { Button, 
-  Form,
-  Modal,
-  Tabs,
-  Tab
- } from 'react-bootstrap'
+import { Button, Form, Modal, Tabs, Tab } from 'react-bootstrap';
 
 function UploadModal(props) {
   return (
     <Modal
-      {...props}
+      show={props.show}
+      onHide={props.onHide}
       size="lg"
       aria-labelledby="contained-modal-title-vcenter"
       centered
     >
-      <Modal.Header closeButton className ='modalHeader'>
+      <Modal.Header closeButton className="modalHeader">
         <Modal.Title id="contained-modal-title-vcenter">
           <span className="headerText">Add Client</span>
-           <br />
+          <br />
         </Modal.Title>
       </Modal.Header>
       <Modal.Body>
-        <ImageUpload/>
+        <ImageUpload
+          onHide={props.onHide}
+          setShowPreview={props.setShowPreview}
+          handleImageChange={props.handleImageChange}
+        />
       </Modal.Body>
     </Modal>
   );
 }
 
 class ImageUpload extends Component {
-
-  state = {
-      file: '',
-      imagePreviewUrl: ''
+  _handleSubmit = e => {
+    e.preventDefault();
+    this.props.onHide();
+    this.props.setShowPreview(true);
   };
 
-  _handleSubmit = e => {
-      e.preventDefault();
-      // TODO: do something with -> this.state.file
-      console.log(this.state.file)
-  }
-
-  _handleImageChange = e =>{
-      e.preventDefault();
-
-      let reader = new FileReader();
-      let file = e.target.files[0];
-      reader.onloadend = () => {
-          this.setState({ file: file, imagePreviewUrl: reader.result });
-      }
-      reader.readAsDataURL(file)
-  }
+  onChange = e => {
+    this.props.handleImageChange(e.target.files[0]);
+  };
 
   render() {
-      let {imagePreviewUrl} = this.state;
-      let $imagePreview = null;
-
     return (
       <div>
-      <form id='imageForm' onSubmit={this._handleSubmit}>
+        <form id="imageForm" onSubmit={this._handleSubmit}>
           <div className="uploadContainer">
-            <i className="far fa-file-image fa-3x"></i>
+            <i className="far fa-file-image fa-3x" />
             <br />
-              <p className="desc"><span className="contentBold">Upload image</span><br />Write down the link to your client to insert an image</p>
+            <p className="desc">
+              <span className="contentBold">Upload image</span>
+              <br />
+              Write down the link to your client to insert an image
+            </p>
             <br />
-            <Form.Control size="sm" type="url" name="urlFill" id="dataUrl" placeholder="http://example.com/"/>
+            <Form.Control
+              size="sm"
+              type="url"
+              name="urlFill"
+              id="dataUrl"
+              placeholder="http://example.com/"
+            />
           </div>
-          <input style={{display: 'none'}} type="file" name="file" id="addCustomLogo" aria-describedby="inputClientUrl" onChange={this._handleImageChange}/>
+          <input
+            style={{ display: 'none' }}
+            type="file"
+            name="file"
+            id="addCustomLogo"
+            aria-describedby="inputClientUrl"
+            onChange={this.onChange}
+          />
           <label htmlFor="addCustomLogo" id="labelCustom">
             Add Custom Logo
           </label>
           <br />
-          {/* {!$imagePreview && <img src={imagePreviewUrl} />} */}
-          <Button id="addClient" variant="primary" type="submit" onClick={this._handleSubmit}>
+          <Button
+            id="addClient"
+            variant="primary"
+            type="submit"
+            onClick={this._handleSubmit}
+          >
             ADD CLIENT
           </Button>
         </form>
       </div>
-    )
+    );
   }
 }
 
-
-function AddContent(){
+function AddContent(props) {
   const [modalShow, setModalShow] = React.useState(false);
-  return(
+  return (
     <div className="btnContainer">
-      <button className="trigger" id="addBtn" onClick={() => setModalShow(true)}>
+      <button
+        className="trigger"
+        id="addBtn"
+        onClick={() => setModalShow(true)}
+      >
         <div className="descUpload">
-          <i className="fas fa-plus fa-5x"></i>
+          <i className="fas fa-plus fa-5x" />
           <br />
           <span>Add</span>
         </div>
       </button>
       <UploadModal
+        setShowPreview={props.setShowPreview}
+        handleImageChange={props.handleImageChange}
         show={modalShow}
         onHide={() => setModalShow(false)}
       />
@@ -103,26 +113,47 @@ function AddContent(){
 
 function App() {
   const [key, setKey] = useState('home');
-  
+  const [file, setFile] = useState('');
+  const [showPreview, setShowPreview] = useState('');
+
+  const handleImageChange = upload => {
+    setFile(URL.createObjectURL(upload));
+  };
+
+  const tabs = [
+    { eventKey: 'home', title: 'CLIENTS' },
+    { eventKey: 'profile', title: 'FEATURED' },
+    { eventKey: 'contact', title: 'PRESS' },
+  ];
+
   return (
     <React.Fragment>
-      <Tabs justify id="controlled-tab-example" activeKey={key} onSelect={k => setKey(k)}>
-      <Tab eventKey="home" title="CLIENTS" id='clientsIcon'>
-        <div className="threeTab">
-          <AddContent/>
-        </div>
-      </Tab>
-      <Tab eventKey="profile" title="FEATURED">
-        <div className="threeTab">
-          <AddContent/>
-        </div>
-      </Tab>
-      <Tab eventKey="contact" title="PRESS">
-        <div className="threeTab">
-          <AddContent/>
-        </div>
-      </Tab>
-    </Tabs>
+      <Tabs
+        justify
+        id="controlled-tab-example"
+        activeKey={key}
+        onSelect={k => setKey(k)}
+      >
+        {tabs.map(tab => (
+          <Tab
+            eventKey={tab.eventKey}
+            key={tab.title}
+            title={tab.title}
+            id={tab.eventKey === 'home' ? 'clientsIcon' : ''}
+          >
+            <div className="threeTab">
+            {showPreview && file && <img src={file} alt="preview" />}
+              <AddContent
+                setShowPreview={setShowPreview}
+                handleImageChange={handleImageChange}
+              />
+              
+            </div>
+          </Tab>
+        ))}
+        
+      </Tabs>
+      
     </React.Fragment>
   );
 }

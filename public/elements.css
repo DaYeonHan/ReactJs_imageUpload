@@ -27,15 +27,16 @@ a:hover {
 .threeTab{
     background-color: white;
     border-radius: .25em;
-    padding-bottom: 2em;
-    padding-top: .8em;
+
     box-shadow: 0px -6px 12px -6px rgba(117, 117, 117, 0.3);
     z-index: 100;
+
+    padding: .8em 5em 2em 5em;
 }
 
 /* Add button on home */
 body button#addBtn{
-    width: 88%;
+    width: 100%;
     height: auto;
     border-radius: 5px;
     border: solid 0.5px #707070;
@@ -64,6 +65,13 @@ body button#addBtn:hover{
 .btnContainer{
     text-align: center;
     padding-top: 1em;
+}
+
+#controlled-tab-example-tabpane-home img{
+    /* width: 11.5em; */
+    height: 7.4em;
+    background-size: cover;
+
 }
 
 /* Modal */
