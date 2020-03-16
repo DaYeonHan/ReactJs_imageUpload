@@ -35,8 +35,14 @@ class ImageUpload extends Component {
     this.props.setShowPreview(true);
   };
 
+  onChangUrl = e => {
+    this.props.handleImageChange(e.target.value);
+  }
+
   onChange = e => {
     this.props.handleImageChange(e.target.files[0]);
+    this.props.onHide();
+    this.props.setShowPreview(true);
   };
 
   render() {
@@ -58,26 +64,28 @@ class ImageUpload extends Component {
               name="urlFill"
               id="dataUrl"
               placeholder="http://example.com/"
+              aria-describedby = "inputClientUrl"
+              onChange = {this.onChangeUrl}
             />
-          </div>
-          <input
-            style={{ display: 'none' }}
-            type="file"
-            name="file"
-            id="addCustomLogo"
-            aria-describedby="inputClientUrl"
-            onChange={this.onChange}
-          />
-          <label htmlFor="addCustomLogo" id="labelCustom">
-            Add Custom Logo
-          </label>
-          <br />
-          <Button
-            id="addClient"
-            variant="primary"
-            type="submit"
-            onClick={this._handleSubmit}
-          >
+            </div>
+            <input
+              style={{ display: 'none' }}
+              type="file"
+              name="file"
+              id="addCustomLogo"
+              aria-describedby="inputClientFile"
+              onChange={this.onChange}
+            />
+            <label htmlFor="addCustomLogo" id="labelCustom">
+              Add Custom Logo
+            </label>
+            <br />
+            <Button
+              id="addClient"
+              variant="primary"
+              type="submit"
+              onClick={this._handleSubmit}
+            >
             ADD CLIENT
           </Button>
         </form>
@@ -142,7 +150,16 @@ function App() {
             id={tab.eventKey === 'home' ? 'clientsIcon' : ''}
           >
             <div className="threeTab">
-            {showPreview && file && <img src={file} alt="preview" />}
+              {showPreview && file &&  
+                <div className = "clientPreview"> 
+                  <img src={file} alt="preview"/>
+                  <div className='textContent'>
+                    <p>Insta Natural</p>
+                    <p><i className='far fa-grin-alt'></i> Good</p>
+                    <p>Sherly is fantastic! She is an absolute expert. </p>
+                  </div>
+                </div>
+              }
               <AddContent
                 setShowPreview={setShowPreview}
                 handleImageChange={handleImageChange}

@@ -4,6 +4,11 @@ body{
     background-color: #F2F4F7 !important;
 }
 
+#root{
+    margin: auto;
+    width: 80%;
+}
+
 /*nav*/
 .nav-tabs .nav-link{
     border: none !important;
@@ -15,7 +20,7 @@ body{
 
 .nav-tabs .nav-item{
     margin-bottom: -1px !important;
-    box-shadow: 0px -6px 12px -4px rgba(117, 117, 117, 0.2);
+    box-shadow: 0px -6px 12px -4px rgba(117, 117, 117, 0.4);
     z-index: 100;
 }
 
@@ -27,11 +32,9 @@ a:hover {
 .threeTab{
     background-color: white;
     border-radius: .25em;
-
     box-shadow: 0px -6px 12px -6px rgba(117, 117, 117, 0.3);
     z-index: 100;
-
-    padding: .8em 5em 2em 5em;
+    padding: 2em 5em 2em 5em;
 }
 
 /* Add button on home */
@@ -67,11 +70,47 @@ body button#addBtn:hover{
     padding-top: 1em;
 }
 
-#controlled-tab-example-tabpane-home img{
-    /* width: 11.5em; */
-    height: 7.4em;
-    background-size: cover;
+/* Client Preview */
+.clientPreview{
+    width: 100%;
+    height: auto;
+    border-radius: 5px;
+    border: solid 0.5px #D1D5DA;
+    background-color: #ffffff;
+    cursor: pointer;
+    padding: 1em;
+    display: flex;
+    margin-bottom: .3em;
+}
 
+.textContent{
+    padding: 1.3rem;
+    line-height: 1.6;
+}
+
+.textContent p:first-child{
+    font-weight: bold;
+    margin-bottom: 0;
+    color: #003547;
+    font-size: 1.3rem;
+}
+
+.textContent p:nth-child(2){
+    color: yellowgreen;
+    margin-bottom: 0;
+}
+
+.textContent p:last-child{
+    color: #767676;
+    margin-bottom: 0;
+}
+
+#controlled-tab-example-tabpane-home img{
+    height: 12em;
+    width: 18em;
+    border-radius: .25em;
+    object-fit: cover;
+    align-self: flex-start;
 }
 
 /* Modal */
@@ -79,11 +118,11 @@ body button#addBtn:hover{
     width: 45%;
     height: 2rem;
     border-radius: 3px;
-  border: solid .5px #a7a7a78e;
-  background-color: #ffffff;
-  padding-left: .8rem;
-  margin: 0 auto 2rem auto;
-  font-size: .8em;
+    border: solid .5px #a7a7a78e;
+    background-color: #ffffff;
+    padding-left: .8rem;
+    margin: 0 auto 2rem auto;
+    font-size: .8em;
 }
 
 #dataUrl::placeholder{
